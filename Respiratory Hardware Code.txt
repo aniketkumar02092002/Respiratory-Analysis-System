@@ -1,0 +1,61 @@
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+// Initialize the LCD with the I2C address (usually 0x27 or 0x3F) and dimensions
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Pin definitions
+const int sensor1Pin = A0;  // Pin for Sensor 1
+const int sensor2Pin = A1;  // Pin for Sensor 2
+/// IAL;      //sensor1Value=90, 200     sensor2Value=10, 60
+/// EAL;      //sensor1Value=50, 80     sensor2Value=20, 45
+/// NORMAL;   //sensor1Value=90, 120     sensor2Value=10, 55
+
+int sec;
+
+void setup() {
+  // Initialize the LCD
+  lcd.init();
+  lcd.backlight(); // Turn on the backlight
+}
+
+void loop() {
+  // Read sensor values
+  int sensor1Value = analogRead(sensor1Pin);
+  int sensor2Value = analogRead(sensor2Pin);
+
+  if(sensor1Value > 90 & sensor1Value < 200 & sensor2Value > 10 & sensor2Value < 60){
+    sec++;
+    delay(200);
+    lcd.clear();
+    lcd.setCursor(0, 0); // Move to the second line
+    lcd.print("     INHALE     ");   // Print Sensor 1 label
+    lcd.setCursor(0, 1);
+    lcd.print("Time:");  // Print Sensor 2 label
+    lcd.print(sec);
+    lcd.print(" sec");
+  }
+  else if(sensor1Value > 30 & sensor1Value < 80 & sensor2Value > 2 & sensor2Value < 45){
+    sec++;
+    delay(200);
+    lcd.clear();
+    lcd.setCursor(0, 0); // Move to the second line
+    lcd.print("     EXHALE     ");   // Print Sensor 1 label
+    lcd.setCursor(0, 1);
+    lcd.print("Time:");  // Print Sensor 2 label
+    lcd.print(sec);
+    lcd.print(" sec");
+    }
+    else{
+      sec = 0;
+      lcd.clear();
+      lcd.setCursor(0, 0); // Move to the second line
+      lcd.print("     NORMAL     ");
+      lcd.setCursor(0, 1);
+      lcd.print("Time:");  // Print Sensor 2 label
+      lcd.print(sec);
+      lcd.print(" sec");
+    }
+  // Add a small delay
+  delay(500);
+}
