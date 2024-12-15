@@ -38,50 +38,7 @@ Processing: The Arduino uses simple rules to determine whether you’re inhaling
 Output: Your breathing phase and duration are displayed on the screen or indicated by LEDs.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Difficulties Faced and How We Tackled Them
-Technical Challenges
-Sensor Noise and Calibration
 
-Challenge: The force sensors picked up noise and produced inconsistent readings, making it hard to classify breathing phases accurately.
-Solution: We implemented a voltage divider circuit and applied a threshold-based algorithm in the Arduino code to filter out noise. Multiple tests on users were conducted to fine-tune the thresholds for inhalation, exhalation, and resting states.
-Real-Time Data Processing Delays
-
-Challenge: Processing the sensor data and updating the LCD display caused minor delays in showing results.
-Solution: We optimized the Arduino code by simplifying the logic, reducing unnecessary operations, and lowering the sampling delay.
-Hardware Integration
-
-Challenge: Connecting multiple components, including sensors, LEDs, and the LCD, made the prototype cluttered and prone to errors.
-Solution: We used a small PCB (Printed Circuit Board) to organize the wiring and ensure a clean, compact hardware setup. This improved both reliability and portability.
-Limited Battery Life
-
-Challenge: The battery drained quickly, especially during long testing sessions.
-Solution: Power-saving features in the Arduino were enabled, and unnecessary power usage, like LCD backlighting, was reduced to extend the operational time.
-Handling Rapid Breathing Patterns
-
-Challenge: Detecting rapid breathing during stress or exercise was difficult with the initial sampling rate.
-Solution: We increased the sampling frequency of the sensors and adjusted the time measurement algorithm to capture faster transitions.
-Soft Skill Challenges
-Team Coordination
-
-Challenge: Aligning the team’s work schedules and responsibilities was challenging, especially during critical project phases.
-Solution: We scheduled regular meetings, divided tasks clearly, and used simple project management tools like Google Sheets to track progress and deadlines.
-Communication Gaps
-
-Challenge: Miscommunication about technical tasks occasionally led to delays, such as mismatched hardware components being procured.
-Solution: We established a habit of summarizing action points at the end of each discussion to ensure everyone was aligned.
-Time Management
-
-Challenge: Balancing the project workload with academic responsibilities was a constant struggle.
-Solution: We created a timeline with milestones, prioritized tasks based on deadlines, and worked in small sprints to stay on track.
-Stress During Testing
-
-Challenge: The team faced significant stress during the testing phase when results were not aligning with expectations.
-Solution: We took short breaks, delegated tasks strategically, and approached the problem step by step, focusing on solving one issue at a time.
-Presenting Technical Results
-
-Challenge: Simplifying technical explanations for non-technical reviewers was initially challenging.
-Solution: We prepared concise slides with visuals and graphs and practiced explaining the project in layman terms during mock presentations.
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 Future Upgrades
